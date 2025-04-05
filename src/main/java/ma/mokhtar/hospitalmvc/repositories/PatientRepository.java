@@ -10,6 +10,6 @@ import java.util.List;
 
 @Repository
 public interface PatientRepository extends JpaRepository<Patient, Long> {
-    Page<Patient> findByNomContainsIgnoreCaseOrPrenomContainsIgnoreCase(String nom,String prenom, Pageable pageable);
+    Page<Patient> findByNomContainsIgnoreCase(String kw, Pageable pageable);
 
 }

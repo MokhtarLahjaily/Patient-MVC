@@ -33,7 +33,7 @@ public class PatientController {
                         @RequestParam(name = "page",defaultValue = "0") int page,
                         @RequestParam(name = "size",defaultValue = "5")int size,
                         @RequestParam(name = "keyword",defaultValue = "") String keyword) {
-        Page<Patient> pagePatients = patientRepository.findByNomContainsIgnoreCaseOrPrenomContainsIgnoreCase(keyword,keyword, PageRequest.of(page, size));
+        Page<Patient> pagePatients = patientRepository.findByNomContainsIgnoreCase(keyword, PageRequest.of(page, size));
         model.addAttribute("listPatients", pagePatients.getContent());
         // For pagination
         model.addAttribute("pages", new int[pagePatients.getTotalPages()]);
@@ -69,7 +69,7 @@ public class PatientController {
     public String save(Model model, @Valid Patient patient, BindingResult bindingResult) {
         if(bindingResult.hasErrors()) return "formPatients";
         patientRepository.save(patient);
-        return "formPatients";   // This will resolve to src/main/resources/templates/patients/formPatients.html
+        return "redirect:/formPatients";   // This will resolve to src/main/resources/templates/patients/formPatients.html
     }
 
 
