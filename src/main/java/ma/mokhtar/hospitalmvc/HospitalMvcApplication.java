@@ -27,16 +27,16 @@ public class HospitalMvcApplication {
             p1.setMalade(false);
 
 
-            Patient p2 = new Patient(null, "Lahjaily", "Mokhtar", new Date(), 1200, false); // AllArgsConstructor
+            Patient p2 = new Patient(null, "Ayman", "Yasser", new Date(), 1800, true); // AllArgsConstructor
 
-
+            // Builder
             Patient p3 = Patient.builder()
                     .nom("Leo")
                     .prenom("Messi")
                     .dateNaissance(new Date())
                     .score(1200)
                     .malade(false)
-                    .build(); // Builder
+                    .build();
 
             // Save patients
             patientRepository.save(p1);
