@@ -1,6 +1,9 @@
 package ma.mokhtar.hospitalmvc.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -14,11 +17,16 @@ import java.util.Date;
 public class Patient {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotEmpty(message = "Nom is required")
+    @Size(min = 3, max = 20)
     private String nom;
+    @NotEmpty(message = "Prenom is required")
+    @Size(min = 3, max = 20)
     private String prenom;
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dateNaissance;
+    @DecimalMin("100")
     private int score;
     private boolean malade;
 

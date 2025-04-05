@@ -1,5 +1,6 @@
 package ma.mokhtar.hospitalmvc.web;
 
+import jakarta.validation.Valid;
 import ma.mokhtar.hospitalmvc.entities.Patient;
 import ma.mokhtar.hospitalmvc.repositories.PatientRepository;
 
@@ -8,6 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -64,7 +66,8 @@ public class PatientController {
     }
 
     @PostMapping(path = "/save")
-    public String save(Model model, Patient patient) {
+    public String save(Model model, @Valid Patient patient, BindingResult bindingResult) {
+        if(bindingResult.hasErrors()) return "formPatients";
         patientRepository.save(patient);
         return "formPatients";   // This will resolve to src/main/resources/templates/patients/formPatients.html
     }

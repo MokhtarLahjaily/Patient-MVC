@@ -22,7 +22,7 @@ public class HospitalMvcApplication {
             Patient p1 = new Patient(); // NoArgsConstructor
             p1.setNom("Lahjaily");
             p1.setPrenom("Mokhtar");
-            p1.setScore(0);
+            p1.setScore(1200);
             p1.setDateNaissance(new Date());
             p1.setMalade(false);
 

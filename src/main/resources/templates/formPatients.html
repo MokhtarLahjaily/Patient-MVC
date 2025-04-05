@@ -14,12 +14,12 @@
         <form method="post" th:action="@{save}">
             <div class="form-group">
                 <label for="nom">Nom</label>
-                <input class="form-control" id="nom" name="nom" required th:value="${patient.nom}" type="text">
+                <input class="form-control" id="nom" name="nom"  th:value="${patient.nom}" type="text">
                 <span th:errors="${patient.nom}"></span>
             </div>
             <div class="form-group">
                 <label for="prenom">Prenom</label>
-                <input class="form-control" id="prenom" name="prenom" required th:value="${patient.nom}" type="text">
+                <input class="form-control" id="prenom" name="prenom"  th:value="${patient.nom}" type="text">
                 <span th:errors="${patient.prenom}"></span>
             </div>
             <div class="form-group">
@@ -35,7 +35,7 @@
             </div>
             <div class="form-group">
                 <label for="score">Score</label>
-                <input class="form-control" id="score" name="score" required th:value="${patient.score}" type="text">
+                <input class="form-control" id="score" name="score"  th:value="${patient.score}" type="text">
                 <span th:errors="${patient.score}"></span>
             </div>
             <button class="btn btn-primary" type="submit">Submit</button>
