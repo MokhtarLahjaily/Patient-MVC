@@ -26,7 +26,7 @@ public class Patient {
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dateNaissance;
-    @DecimalMin("100")
+    @DecimalMin("1000")
     private int score;
     private boolean malade;
 
