@@ -65,11 +65,23 @@ public class PatientController {
         return "formPatients";   // This will resolve to src/main/resources/templates/patients/formPatients.html
     }
 
+    @GetMapping("/editPatient")
+    public String editPatient(Model model,Long id,String keyword,int page) {
+        Patient patient = patientRepository.findById(id).orElse(null);
+        if(patient == null) throw new RuntimeException("Patient not found");
+        model.addAttribute("patient", patient);
+        model.addAttribute("keyword", keyword);
+        model.addAttribute("page", page);
+        return "editPatient";   // This will resolve to src/main/resources/templates/patients/formPatients.html
+    }
+
     @PostMapping(path = "/save")
-    public String save(Model model, @Valid Patient patient, BindingResult bindingResult) {
+    public String save(Model model, @Valid Patient patient, BindingResult bindingResult,
+                       @RequestParam( defaultValue = "0")int page,
+                       @RequestParam( defaultValue = "") String keyword) {
         if(bindingResult.hasErrors()) return "formPatients";
         patientRepository.save(patient);
-        return "redirect:/formPatients";   // This will resolve to src/main/resources/templates/patients/formPatients.html
+        return "redirect:/index?page="+page+"&keyword="+keyword;
     }
 
 

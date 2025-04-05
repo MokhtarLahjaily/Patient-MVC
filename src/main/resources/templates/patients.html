@@ -40,8 +40,17 @@
                         <td>
                             <a onclick="return confirm('Est vous sure?')"
                                class="btn btn-danger"
-                               th:href="@{/deletePatient(id=${p.id}, keyword=${keyword}, page=${currentPage})}">Supprimer</a>
+                               th:href="@{deletePatient(id=${p.id}, keyword=${keyword}, page=${currentPage})}">
+                                Supprimer
+                            </a>
                         </td>
+                        <td>
+                            <a class="btn btn-success"
+                               th:href="@{editPatient(id=${p.id}, keyword=${keyword}, page=${currentPage})}">
+                                Edit
+                            </a>
+                        </td>
+
                     </tr>
                     </tbody>
                 </table>
