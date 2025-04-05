@@ -33,6 +33,12 @@
                 <input class="form-control" id="dateNaissance" name="dateNaissance" required th:value="${patient.dateNaissance}" type="date">
                 <span th:errors="${patient.dateNaissance}"></span>
             </div>
+            <div class="form-group mb-3">
+                <label for="email">Email</label>
+                <input class="form-control" id="email" name="email" th:value="${patient.email}" type="email" readonly>
+                <small class="text-muted">L'email ne peut être modifié que par l'utilisateur concerné</small>
+            </div>
+            <input type="hidden" name="password" th:value="${patient.password}" />
             <div class="form-group">
                 <label for="malade">Malade</label>
                 <input id="malade" name="malade"  th:checked="${patient.malade}" type="checkbox">
