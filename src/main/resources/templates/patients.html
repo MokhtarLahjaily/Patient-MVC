@@ -54,6 +54,7 @@
                     </tr>
                     </tbody>
                 </table>
+<!--            Pagination  -->
                 <ul class="nav nav-pills">
                     <li th:each="page,status : ${pages}">
                         <a th:class="${status.index==currentPage?'btn btn-info m-1':'btn btn-outline-info m-1'}"

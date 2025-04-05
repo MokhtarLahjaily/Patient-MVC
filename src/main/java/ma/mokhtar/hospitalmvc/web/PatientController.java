@@ -7,6 +7,7 @@ import ma.mokhtar.hospitalmvc.repositories.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -19,6 +20,8 @@ import java.util.List;
 
 @Controller
 public class PatientController {
+    @Autowired
+    private PasswordEncoder passwordEncoder;
     // Inject the PatientRepository here
     @Autowired
     private PatientRepository patientRepository;
@@ -80,6 +83,7 @@ public class PatientController {
                        @RequestParam( defaultValue = "0")int page,
                        @RequestParam( defaultValue = "") String keyword) {
         if(bindingResult.hasErrors()) return "formPatients";
+        patient.setPassword(passwordEncoder.encode(patient.getPassword()));
         patientRepository.save(patient);
         return "redirect:/index?page="+page+"&keyword="+keyword;
     }

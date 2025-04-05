@@ -23,6 +23,10 @@ public class Patient {
     @NotEmpty(message = "Prenom is required")
     @Size(min = 3, max = 20)
     private String prenom;
+    @Column(unique = true)
+    private String email;
+    @Column(length = 255)
+    private String password;
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dateNaissance;
