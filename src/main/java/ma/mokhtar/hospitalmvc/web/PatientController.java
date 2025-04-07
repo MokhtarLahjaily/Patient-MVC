@@ -33,7 +33,7 @@ public class PatientController {
         model.addAttribute("pages", new int[pagePatients.getTotalPages()]);
         model.addAttribute("currentPage", page);
         model.addAttribute("keyword", keyword);
-        return "patients";   // This will resolve to src/main/resources/templates/patients/index.html
+        return "patients";   
     }
 
     @GetMapping("/deletePatient")
