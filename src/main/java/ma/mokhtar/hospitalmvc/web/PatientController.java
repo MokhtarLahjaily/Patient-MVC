@@ -75,7 +75,7 @@ public class PatientController {
         model.addAttribute("patient", patient);
         model.addAttribute("keyword", keyword);
         model.addAttribute("page", page);
-        return "editPatient";   // This will resolve to src/main/resources/templates/patients/formPatients.html
+        return "editPatient";   
     }
 
     @PostMapping(path = "/save")
