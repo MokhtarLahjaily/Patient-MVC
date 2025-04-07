@@ -18,12 +18,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
+@AllArgsConstructor
 @Controller
 public class PatientController {
-    @Autowired
+    
     private PasswordEncoder passwordEncoder;
     // Inject the PatientRepository here
-    @Autowired
+    
     private PatientRepository patientRepository;
 
     // Constructor injection is preferred for better testability
