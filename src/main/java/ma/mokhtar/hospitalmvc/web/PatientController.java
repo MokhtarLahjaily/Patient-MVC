@@ -20,14 +20,7 @@ import java.util.List;
 public class PatientController {
     
     private PasswordEncoder passwordEncoder;
-    // Inject the PatientRepository here
-    
     private PatientRepository patientRepository;
-
-    // Constructor injection is preferred for better testability
-    /*public PatientController(PatientRepository patientRepository) {
-        this.patientRepository = patientRepository;
-    }*/
 
     @GetMapping("/index")
     public String index(Model model,
